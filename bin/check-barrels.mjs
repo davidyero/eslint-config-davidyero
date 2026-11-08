@@ -33,4 +33,4 @@ if (offenders.length > 0) {
   for (const o of offenders) console.error(`  - ${o}`);
   process.exit(1);
 }
-console.log('✓ check-barrels: sin barrels');
+process.stdout.write('✓ check-barrels: sin barrels\n');
