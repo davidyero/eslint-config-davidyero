@@ -1,6 +1,6 @@
 {
   "name": "eslint-config-davidyero",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "ESLint compartido del ecosistema super-davidyero: las reglas que una máquina puede vigilar.",
   "type": "module",
   "license": "MIT",
