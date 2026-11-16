@@ -15,7 +15,7 @@ depender de que alguien (persona o IA) se acuerde.
 ## Uso
 
 ```bash
-npm i -D eslint@10 "eslint-config-davidyero@github:davidyero/eslint-config-davidyero#v0.2.0"   # eslint 9 también vale
+npm i -D eslint@10 "eslint-config-davidyero@github:davidyero/eslint-config-davidyero#v0.3.0"   # desde v0.3.0 exige eslint 10 (con eslint 9, quédate en v0.2.0)
 ```
 
 ```js
