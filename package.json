@@ -1,12 +1,13 @@
 {
   "name": "eslint-config-davidyero",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "ESLint compartido del ecosistema super-davidyero: las reglas que una máquina puede vigilar.",
   "type": "module",
   "license": "MIT",
   "exports": {
     "./web": "./web.js",
-    "./node": "./node.js"
+    "./node": "./node.js",
+    "./motion": "./motion.js"
   },
   "bin": {
     "check-barrels": "./bin/check-barrels.mjs"
@@ -15,8 +16,13 @@
     "web.js",
     "node.js",
     "shared.js",
+    "motion.js",
+    "rules",
     "bin"
   ],
+  "scripts": {
+    "test": "node --test tests/*.test.js"
+  },
   "dependencies": {
     "@eslint/js": "^10.0.1",
     "eslint-config-prettier": "^10.1.8",

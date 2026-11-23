@@ -11,11 +11,12 @@ depender de que alguien (persona o IA) se acuerde.
 | UX 7 · Texto por `SuperTypography` | prohíbe `<p>`, `<span>`, `<label>`, `<h1..h6>`… fuera de los `Super*` |
 | 6 · Viñetas con `SuperBulletList` | prohíbe `<li>` fuera de los `Super*` |
 | 10 · Colores por tokens | prohíbe `#hex`, `rgb()` y `hsl()` fuera de `styles/`, `theme/`, `tokens*`, `colors*` |
+| UX 14 · Movimiento por tokens | `davidyero/no-motion-literals` (**siempre aviso**): `\d+ms`, `cubic-bezier(` y segundos de animación (`1.1s ease`) en strings, template literals y objetos de estilo; en RN, `Easing.bezier(…)` y duraciones numéricas en `withTiming`, `withDelay`, `Animated.timing`, `LayoutAnimation` y `FadeIn.duration(…)`. Fuera de `motion.ts` |
 
 ## Uso
 
 ```bash
-npm i -D eslint@10 "eslint-config-davidyero@github:davidyero/eslint-config-davidyero#v0.3.0"   # desde v0.3.0 exige eslint 10 (con eslint 9, quédate en v0.2.0)
+npm i -D eslint@10 "eslint-config-davidyero@github:davidyero/eslint-config-davidyero#v0.4.0"   # desde v0.3.0 exige eslint 10 (con eslint 9, quédate en v0.2.0)
 ```
 
 ```js
@@ -39,3 +40,16 @@ export default davidyero();
 `strict: false` (por defecto) deja como **aviso** las reglas de texto, i18n y color para
 poder adoptarlo en un repo con deuda sin tumbar el CI. Cuando el repo llegue a cero
 avisos, pásalo a `strict: true` para que no vuelvan.
+
+### Movimiento en una app React Native
+
+El preset web ya trae la regla de movimiento. Una app RN (que no usa el preset web) la
+añade sola:
+
+```js
+// eslint.config.js
+import motion from 'eslint-config-davidyero/motion';
+export default [...tuConfig, ...motion()];
+```
+
+`npm test` corre los tests de la regla.
