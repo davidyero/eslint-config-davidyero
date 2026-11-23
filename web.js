@@ -15,6 +15,7 @@ import reactHooks from 'eslint-plugin-react-hooks';
 import reactRefresh from 'eslint-plugin-react-refresh';
 import globals from 'globals';
 import tseslint from 'typescript-eslint';
+import motion from './motion.js';
 import { ignores, noBarrels, tsRules } from './shared.js';
 
 // Etiquetas de texto que deben ser <SuperTypography>.
@@ -70,6 +71,8 @@ export default function davidyero({ strict = false, extraIgnores = [] } = {}) {
     { files: ['**/*.tsx'], ignores: [...SUPER.map((s) => `${s}/**`), ...SUPER_FILES, ...THEME_FILES], rules: { 'no-restricted-syntax': [level, ...rawText, ...colors] } },
     { files: [...SUPER.map((s) => `${s}/*.tsx`), ...SUPER_FILES], ignores: THEME_FILES, rules: { 'no-restricted-syntax': [level, ...colors] } },
     { files: ['**/*.ts'], ignores: THEME_FILES, rules: { 'no-restricted-syntax': [level, ...colors] } },
+    // UX 14: milisegundos y curvas solo en motion.ts. Siempre aviso, también en strict.
+    ...motion({ files: ['**/*.{ts,tsx}'] }),
     noBarrels,
   );
 }
